@@ -21,7 +21,7 @@ map("n", "<leader>fh", telescope.help_tags, { desc = "Telescope help tags" })
 map("n", "<leader>fo", "<CMD>Telescope smart_open<CR>", { desc = "Telescope smart open" })
 
 -- aerial
-map("n", "<leader>lm", "<CMD>AerialToggle!<CR>", { desc = "Aerial: Toggle Code Map"})
+map("n", "<leader>lm", "<CMD>AerialToggle!<CR>", { desc = "Aerial: Toggle Code Map" })
 
 -- formatting
 map("n", "<leader>k", function()
@@ -42,3 +42,12 @@ map("n", "<leader>g", function()
 		})
 		:toggle()
 end, { noremap = true, silent = true })
+
+-- Enable <Tab> to indent if no suggestions are available
+vim.keymap.set("i", "<Tab>", function()
+	if require("copilot.suggestion").is_visible() then
+		require("copilot.suggestion").accept()
+	else
+		vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Tab>", true, false, true), "n", false)
+	end
+end, { desc = "Super Tab", silent = true })
