@@ -1,4 +1,4 @@
-return {
+require("lualine").setup({
 	options = {
 		icons_enabled = true,
 		theme = "auto",
@@ -38,4 +38,4 @@ return {
 	winbar = {},
 	inactive_winbar = {},
 	extensions = {},
-}
+})

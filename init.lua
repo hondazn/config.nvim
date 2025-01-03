@@ -26,4 +26,6 @@ require("lazy").setup({
 	},
 }, lazy_config)
 
+vim.cmd("colorscheme nightfox")
+
 require "config"

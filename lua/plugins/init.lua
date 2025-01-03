@@ -1,35 +1,65 @@
 return {
-	"fynnfluegge/monet.nvim",
-	"folke/which-key.nvim",
+	{ "folke/which-key.nvim", lazy = true, event = "VeryLazy", opts = {} },
+	{
+		"nvimdev/dashboard-nvim",
+		lazy = true,
+		event = "VimEnter",
+		config = function()
+			require("config.dashboard")
+		end,
+		dependencies = { { "nvim-tree/nvim-web-devicons" } },
+	},
 	{
 		"stevearc/oil.nvim",
-		---@module 'oil'
-		---@type oil.SetupOpts
+		lazy = true,
+		event = "VeryLazy",
 		opts = { view_options = { show_hidden = true } },
-		-- Optional dependencies
 		dependencies = { { "echasnovski/mini.icons", opts = {} } },
-		-- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if prefer nvim-web-devicons
 	},
 	{
 		"nvim-telescope/telescope.nvim",
 		tag = "0.1.8",
-		-- or                              , branch = '0.1.x',
 		dependencies = { "nvim-lua/plenary.nvim" },
-		opts = {},
+		lazy = true,
+		opts = {
+			defaults = {
+				prompt_prefix = "   ",
+				selection_caret = " ",
+				entry_prefix = " ",
+				sorting_strategy = "ascending",
+				layout_config = {
+					horizontal = {
+						prompt_position = "top",
+						preview_width = 0.55,
+					},
+					width = 0.87,
+					height = 0.80,
+				},
+				mappings = {
+					n = { ["q"] = require("telescope.actions").close },
+				},
+			},
+			pickers = {
+				colorscheme = {
+					enable_preview = true,
+				},
+			},
+		},
 	},
 	{
 		"folke/flash.nvim",
+		lazy = true,
 		event = "VeryLazy",
 		opts = {},
 		keys = {
-			{
-				"s",
-				mode = { "n", "x", "o" },
-				function()
-					require("flash").jump()
-				end,
-				desc = "Flash",
-			},
+			-- {
+			-- 	"s",
+			-- 	mode = { "n", "x", "o" },
+			-- 	function()
+			-- 		require("flash").jump()
+			-- 	end,
+			-- 	desc = "Flash",
+			-- },
 			{
 				"S",
 				mode = { "n", "x", "o" },
@@ -66,12 +96,14 @@ return {
 	},
 	{
 		"sphamba/smear-cursor.nvim",
+		lazy = true,
 		event = "VeryLazy",
 		opts = {},
 	},
 	{
 		"karb94/neoscroll.nvim",
 		event = "VeryLazy",
+		lazy = true,
 		opts = {
 			duration_multiplier = 0.4,
 			easing = "quadratic",
@@ -80,6 +112,7 @@ return {
 	{
 		"danielfalk/smart-open.nvim",
 		branch = "0.2.x",
+		lazy = true,
 		config = function()
 			require("telescope").load_extension("smart_open")
 		end,
@@ -94,19 +127,26 @@ return {
 	},
 	{
 		"nvim-lualine/lualine.nvim",
-		opts = require("config.lualine"),
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		lazy = true,
+		event = "VeryLazy",
+		config = function()
+			require("config.lualine")
+		end,
 	},
 	{
 		"akinsho/toggleterm.nvim",
+		lazy = true,
 		version = "*",
-		opts = {--[[ things you want to change go here]]
-		},
+		opts = {},
 	},
 	{
 		"romgrk/barbar.nvim",
+		lazy = true,
+		event = { "BufReadPre", "BufNewFile" },
 		dependencies = {
 			"lewis6991/gitsigns.nvim", -- OPTIONAL: for git status
-			-- 'nvim-tree/nvim-web-devicons', -- OPTIONAL: for file icons
+			"nvim-tree/nvim-web-devicons", -- OPTIONAL: for file icons
 		},
 		init = function()
 			vim.g.barbar_auto_setup = false
@@ -116,35 +156,35 @@ return {
 			-- animation = true,
 			-- insert_at_start = true,
 			-- …etc.
-			icons = {
-				filetype = {
-					enabled = false,
-				},
-			},
 		},
 	},
 	{
 		"shellRaining/hlchunk.nvim",
 		event = { "BufReadPre", "BufNewFile" },
-		opts = {
-			chunk = { enable = true },
-			indent = {
-				enable = true,
-				chars = { "¦" },
-				style = {
-					vim.fn.synIDattr(vim.fn.synIDtrans(vim.fn.hlID("Whitespace")), "fg", "gui"),
+		lazy = true,
+		config = function()
+			require("hlchunk").setup({
+				chunk = { enable = true },
+				indent = {
+					enable = true,
+					chars = { "¦" },
+					style = {
+						vim.fn.synIDattr(vim.fn.synIDtrans(vim.fn.hlID("Whitespace")), "fg", "gui"),
+					},
 				},
-			},
-		},
+			})
+		end,
 	},
 	{
 		"b0o/incline.nvim",
+		lazy = true,
 		event = "VeryLazy",
 		opts = {},
 	},
 	-- lazy.nvim
 	{
 		"folke/noice.nvim",
+		lazy = true,
 		event = "VeryLazy",
 		opts = {
 			-- add any options here
@@ -181,5 +221,17 @@ return {
 			--   If not available, we use `mini` as the fallback
 			"rcarriga/nvim-notify",
 		},
+	},
+	{
+		"MeanderingProgrammer/render-markdown.nvim",
+		-- dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.nvim" }, -- if you use the mini.nvim suite
+		dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.icons" }, -- if you use standalone mini plugins
+		-- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
+		lazy = true,
+		event = { "BufReadPre", "BufNewFile" },
+		ft = { "markdown", "Avante" },
+		---@module 'render-markdown'
+		---@type render.md.UserConfig
+		opts = {},
 	},
 }

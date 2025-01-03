@@ -10,6 +10,7 @@ o.swapfile = false
 o.clipboard = "unnamedplus"
 o.laststatus = 3
 o.cursorlineopt = "number"
+o.cursorline = true
 
 -- Indenting
 o.shiftwidth = 4
@@ -35,5 +36,3 @@ g.loaded_node_provider = 0
 g.loaded_python3_provider = 0
 g.loaded_perl_provider = 0
 g.loaded_ruby_provider = 0
-
-vim.cmd("colorscheme monet")

@@ -1,14 +1,17 @@
 return {
 	{
 		"neovim/nvim-lspconfig",
+		lazy = true,
 		event = { "UIEnter", "BufReadPost", "BufNewFile" },
 		config = function()
 			require("config.lspconfig")
 		end,
 	},
+	-- AI coding
 	{
 		"zbirenbaum/copilot.lua",
 		cmd = "Copilot",
+		lazy = true,
 		event = "InsertEnter",
 		opts = {
 			suggestion = {
@@ -20,15 +23,65 @@ return {
 			},
 		},
 	},
+	{
+		"yetone/avante.nvim",
+		lazy = false,
+		event = "VeryLazy",
+		version = false, -- set this if you want to always pull the latest change
+		opts = {
+			-- add any opts here
+			provider = "copilot",
+		},
+		-- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
+		build = "make",
+		-- build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" -- for windows
+		dependencies = {
+			"stevearc/dressing.nvim",
+			"nvim-lua/plenary.nvim",
+			"MunifTanjim/nui.nvim",
+			--- The below dependencies are optional,
+			"hrsh7th/nvim-cmp", -- autocompletion for avante commands and mentions
+			"nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
+			"zbirenbaum/copilot.lua", -- for providers='copilot'
+			{
+				-- support for image pasting
+				"HakonHarnes/img-clip.nvim",
+				event = "VeryLazy",
+				opts = {
+					-- recommended settings
+					default = {
+						embed_image_as_base64 = false,
+						prompt_for_file_name = false,
+						drag_and_drop = {
+							insert_mode = true,
+						},
+						-- required for Windows users
+						use_absolute_path = true,
+					},
+				},
+			},
+			{
+				-- Make sure to set this up properly if you have lazy=true
+				"MeanderingProgrammer/render-markdown.nvim",
+				opts = {
+					file_types = { "markdown", "Avante" },
+				},
+				ft = { "markdown", "Avante" },
+			},
+		},
+	},
 	-- formatting!
 	{
 		"stevearc/conform.nvim",
+		lazy = true,
+		event = { "BufReadPost", "BufNewFile" },
 		opts = {
 			formatters_by_ft = { lua = { "stylua" } },
 		},
 	},
 	{
 		"nvim-treesitter/nvim-treesitter",
+		lazy = true,
 		event = { "BufReadPost", "BufNewFile" },
 		cmd = { "TSInstall", "TSBufEnable", "TSBufDisable", "TSModuleInfo" },
 		build = ":TSUpdate",
@@ -36,10 +89,14 @@ return {
 	},
 	{
 		"nvim-treesitter/nvim-treesitter-context",
+		lazy = true,
+		event = { "BufReadPost", "BufNewFile" },
 		opts = {},
 	},
 	{
 		"numToStr/Comment.nvim",
+		lazy = true,
+		event = { "BufReadPost", "BufNewFile" },
 		opts = {
 			-- add any options here
 			toggler = {
@@ -52,11 +109,13 @@ return {
 	},
 	{
 		"lewis6991/gitsigns.nvim",
-		event = { "UIEnter", "BufReadPost", "BufNewFile" },
+		lazy = true,
+		event = { "BufReadPost", "BufNewFile" },
 		opts = {},
 	},
 	{
 		"hrsh7th/nvim-cmp",
+		lazy = true,
 		event = "InsertEnter",
 		dependencies = {
 			{
@@ -101,6 +160,8 @@ return {
 	},
 	{
 		"folke/trouble.nvim",
+		lazy = true,
+		event = { "BufReadPost", "BufNewFile" },
 		opts = {}, -- for default options, refer to the configuration section for custom setup.
 		cmd = "Trouble",
 		keys = {
@@ -138,6 +199,7 @@ return {
 	},
 	{
 		"rachartier/tiny-inline-diagnostic.nvim",
+		lazy = true,
 		event = "VeryLazy", -- Or `LspAttach`
 		priority = 1000, -- needs to be loaded in first
 		config = function()
@@ -151,11 +213,13 @@ return {
 	},
 	{
 		"ray-x/lsp_signature.nvim",
+		lazy = true,
 		event = "VeryLazy",
 		opts = {},
 	},
 	{
 		"stevearc/aerial.nvim",
+		lazy = true,
 		event = { "BufReadPost", "BufNewFile" },
 		opts = {
 			on_attach = function(bufnr)
@@ -167,29 +231,38 @@ return {
 		-- Optional dependencies
 		dependencies = {
 			"nvim-treesitter/nvim-treesitter",
-			-- "nvim-tree/nvim-web-devicons",
+			"nvim-tree/nvim-web-devicons",
 		},
 	},
 	{
 		"kylechui/nvim-surround",
 		version = "*", -- Use for stability; omit to use `main` branch for the latest features
+		lazy = true,
 		event = "VeryLazy",
 		opts = {},
 	},
 	{
 		"onsails/lspkind.nvim",
+		lazy = true,
+		event = "VeryLazy",
 		opts = {},
 	},
 	{
 		"j-hui/fidget.nvim",
+		lazy = true,
+		event = "VeryLazy",
 		opts = {},
 	},
 	{
 		"kevinhwang91/nvim-bqf",
+		lazy = true,
+		event = "VeryLazy",
 		opts = {},
 	},
 	{
 		"folke/lazydev.nvim",
+		lazy = true,
+		event = { "BufReadPost", "BufNewFile" },
 		ft = "lua", -- only load on lua files
 		opts = {
 			library = {
