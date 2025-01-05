@@ -1,3 +1,4 @@
+local lspconfig = require("lspconfig")
 vim.diagnostic.config({ severity_sort = true, virtual_text = false })
 
 local on_attach = function(_, bufnr)
@@ -5,17 +6,28 @@ local on_attach = function(_, bufnr)
 end
 
 local on_init = function(client, _)
-  if client.supports_method "textDocument/semanticTokens" then
-    client.server_capabilities.semanticTokensProvider = nil
-  end
+	if client.supports_method("textDocument/semanticTokens") then
+		client.server_capabilities.semanticTokensProvider = nil
+	end
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 
-return {
-	require("lspconfig").lua_ls.setup {
-		on_attach = on_attach,
-		capabirities = capabilities,
-		on_init = on_init,
-	}
+lspconfig.lua_ls.setup({
+	on_attach = on_attach,
+	capabirities = capabilities,
+	on_init = on_init,
+})
+lspconfig.denols.setup({
+	on_attach = on_attach,
+	capabirities = capabilities,
+	on_init = on_init,
+	root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
+})
+lspconfig.ts_ls.setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    on_init = on_init,
+    root_dir = lspconfig.util.root_pattern "package.json",
+    single_file_support = false
 }
