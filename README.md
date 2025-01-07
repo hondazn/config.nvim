@@ -1,4 +1,4 @@
-# Neovim設定
+# Neovim config
 
 ## Requirements
 - Neovim
