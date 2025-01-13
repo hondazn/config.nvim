@@ -1,10 +1,31 @@
-return {
-  ensure_installed = { "lua", "luadoc", "printf", "vim", "vimdoc", "typescript" },
+require("nvim-treesitter.configs").setup({
+	-- Install parsers synchronously (only applied to `ensure_installed`)
+	sync_install = false,
 
-  highlight = {
-    enable = true,
-    use_languagetree = true,
-  },
+	-- Automatically install missing parsers when entering buffer
+	-- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
+	auto_install = true,
 
-  indent = { enable = true },
-}
+	-- List of parsers to ignore installing (or "all")
+	ignore_install = {},
+
+	modules = {},
+
+	ensure_installed = {
+		"lua",
+		"luadoc",
+		"printf",
+		"vim",
+		"vimdoc",
+		"typescript",
+		"markdown",
+		"markdown_inline",
+	},
+
+	highlight = {
+		enable = true,
+		use_languagetree = true,
+	},
+
+	indent = { enable = true },
+})

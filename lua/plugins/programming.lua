@@ -60,14 +60,14 @@ return {
 					},
 				},
 			},
-			{
-				-- Make sure to set this up properly if you have lazy=true
-				"MeanderingProgrammer/render-markdown.nvim",
-				opts = {
-					file_types = { "markdown", "Avante" },
-				},
-				ft = { "markdown", "Avante" },
-			},
+			-- {
+			-- 	-- Make sure to set this up properly if you have lazy=true
+			-- 	"MeanderingProgrammer/render-markdown.nvim",
+			-- 	opts = {
+			-- 		file_types = { "markdown", "Avante" },
+			-- 	},
+			-- 	ft = { "markdown", "Avante" },
+			-- },
 		},
 	},
 	-- formatting!
@@ -85,7 +85,9 @@ return {
 		event = { "BufReadPost", "BufNewFile" },
 		cmd = { "TSInstall", "TSBufEnable", "TSBufDisable", "TSModuleInfo" },
 		build = ":TSUpdate",
-		opts = require("config.treesitter"),
+		config = function()
+			require("config.treesitter")
+		end
 	},
 	{
 		"nvim-treesitter/nvim-treesitter-context",

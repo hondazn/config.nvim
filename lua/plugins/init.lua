@@ -33,8 +33,7 @@ return {
 	},
 	{
 		"stevearc/oil.nvim",
-		lazy = true,
-		event = "VeryLazy",
+		lazy = false,
 		opts = {
 			view_options = { show_hidden = true },
 		},
@@ -59,13 +58,16 @@ return {
 					width = 0.87,
 					height = 0.80,
 				},
-				mappings = {
-					n = { ["q"] = require("telescope.actions").close },
-				},
+				--mappings = {
+				--	n = { ["q"] = require("telescope.actions").close },
+				--},
 			},
 			pickers = {
 				colorscheme = {
 					enable_preview = true,
+				},
+				find_files = {
+					find_command = { "rg", "--ignore", "--files", "--hidden", "--glob", "!**/.git/*" },
 				},
 			},
 		},
@@ -239,14 +241,51 @@ return {
 	{
 		"MeanderingProgrammer/render-markdown.nvim",
 		-- dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.nvim" }, -- if you use the mini.nvim suite
-		dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.icons" }, -- if you use standalone mini plugins
-		-- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
+		-- dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.icons" }, -- if you use standalone mini plugins
+		dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
 		lazy = true,
 		event = { "BufReadPre", "BufNewFile" },
 		ft = { "markdown", "Avante" },
 		---@module 'render-markdown'
 		---@type render.md.UserConfig
-		opts = {},
+		opts = {
+			preset = "obsidian",
+		},
+	},
+	{
+		"epwalsh/obsidian.nvim",
+		version = "*", -- recommended, use latest release instead of latest commit
+		lazy = true,
+		ft = "markdown",
+		-- Replace the above line with this if you only want to load obsidian.nvim for markdown files in your vault:
+		-- event = {
+		--   -- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand'.
+		--   -- E.g. "BufReadPre " .. vim.fn.expand "~" .. "/my-vault/*.md"
+		--   -- refer to `:h file-pattern` for more examples
+		--   "BufReadPre path/to/my-vault/*.md",
+		--   "BufNewFile path/to/my-vault/*.md",
+		-- },
+		dependencies = {
+			-- Required.
+			"nvim-lua/plenary.nvim",
+
+			-- see below for full list of optional dependencies 👇
+		},
+		opts = {
+			ui = { enable = false },
+			workspaces = {
+				{
+					name = "personal",
+					path = "~/git/github.com/hondazn/personal.obsidian",
+				},
+				{
+					name = "public",
+					path = "~/git/github.com/hondazn/public.obsidian",
+				},
+			},
+
+			-- see below for full list of options 👇
+		},
 	},
 	{
 		"nvzone/showkeys",
