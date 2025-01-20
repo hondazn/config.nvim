@@ -8,6 +8,8 @@ map("i", "<C-h>", "<BS>")
 map("i", "<C-d>", "<Del>")
 map("i", "<C-f>", "<Right>")
 map("i", "<C-b>", "<Left>")
+map("i", "<C-a>", "<Home>")
+map("i", "<C-e>", "<End>")
 map("n", "<Esc>", "<cmd>noh<CR>", { desc = "general clear highlights" })
 
 -- plugins keymap
@@ -44,6 +46,19 @@ end, { desc = "Format File" })
 ---- aerial
 map("n", "<leader>lm", "<CMD>AerialToggle!<CR>", { desc = "Aerial: Toggle Code Map" })
 
+---- octo
+map("n", "<leader>ghi", "<CMD>Octo issue list<CR>", { desc = "Octo: Issue List" })
+map("n", "<leader>ghp", "<CMD>Octo pr list<CR>", { desc = "Octo: PullRequest List" })
+map("n", "<leader>ghc", "<CMD>Octo comment add<CR>", { desc = "Octo: Comment Add" })
+map("n", "<leader>ghn", "<CMD>Octo issue create<CR>", { desc = "Octo: Issue Create" })
+
+---- obsidian
+map("n", "<leader>oo", "<CMD>ObsidianOpen<CR>", { desc = "Obsidian: Open" })
+map("n", "<leader>oy", "<CMD>ObsidianYesterday<CR>", { desc = "Obsidian: Open" })
+map("n", "<leader>od", "<CMD>ObsidianToday<CR>", { desc = "Obsidian: Open" })
+map("n", "<leader>ot", "<CMD>ObsidianTomorrow<CR>", { desc = "Obsidian: Open" })
+map("n", "<C-t>", "<CMD>ObsidianToggleCheckbox<CR>", { desc = "Obsidian: Open" })
+
 ---- snacks
 map("n", "<leader>z", function()
 	Snacks.zen()
@@ -52,14 +67,6 @@ end, { desc = "Toggle Zen Mode" })
 map("n", "<leader>Z", function()
 	Snacks.zen.zoom()
 end, { desc = "Toggle Zoom" })
-
-map("n", "<leader>.", function()
-	Snacks.scratch()
-end, { desc = "Toggle Scratch Buffer" })
-
-map("n", "<leader>S", function()
-	Snacks.scratch.select()
-end, { desc = "Select Scratch Buffer" })
 
 map("n", "<leader>n", function()
 	Snacks.notifier.show_history()

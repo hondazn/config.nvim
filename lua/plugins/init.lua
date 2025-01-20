@@ -24,7 +24,8 @@ return {
 			-- indent = { enabled = true },
 			-- input = { enabled = true },
 			-- notifier = { enabled = true },
-			quickfile = { enabled = true },
+			quickfile = { enabled = false },
+			scratch = { enabled = false },
 			scroll = { enabled = true },
 			-- statuscolumn = { enabled = true },
 			words = { enabled = true },
@@ -245,7 +246,7 @@ return {
 		-- dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" }, -- if you prefer nvim-web-devicons
 		lazy = true,
 		event = { "BufReadPre", "BufNewFile" },
-		ft = { "markdown", "Avante" },
+		ft = { "markdown", "Avante", "octo" },
 		---@module 'render-markdown'
 		---@type render.md.UserConfig
 		opts = {
@@ -312,7 +313,7 @@ return {
 		"epwalsh/obsidian.nvim",
 		version = "*", -- recommended, use latest release instead of latest commit
 		lazy = true,
-		ft = "markdown",
+		ft = { "markdown", "octo" },
 		-- Replace the above line with this if you only want to load obsidian.nvim for markdown files in your vault:
 		-- event = {
 		--   -- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand'.
@@ -357,6 +358,34 @@ return {
 			},
 
 			-- see below for full list of options 👇
+		},
+	},
+	{
+		"pwntester/octo.nvim",
+		dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim", "nvim-tree/nvim-web-devicons" },
+		-- config = function()
+		-- 	require("octo").setup {
+		-- 	mappings_disable_default = true,
+		-- 	mappings = {
+		-- 		issue = {
+		-- 			list = "<leader>ghi",
+		-- 		},
+		-- 		pull_request = {
+		-- 			list = "<leader>ghp",
+		-- 		},
+		-- 	}
+		-- 	}
+		-- end,
+		opts = {
+			mappings_disable_default = true,
+			-- mappings = {
+			-- 	issue = {
+			-- 		list = "<leader>ghi",
+			-- 	},
+			-- 	pull_request = {
+			-- 		list = "<leader>ghp",
+			-- 	},
+			-- }
 		},
 	},
 	{

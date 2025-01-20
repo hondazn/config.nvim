@@ -24,10 +24,42 @@ lspconfig.denols.setup({
 	on_init = on_init,
 	root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
 })
-lspconfig.ts_ls.setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
-    on_init = on_init,
-    root_dir = lspconfig.util.root_pattern "package.json",
-    single_file_support = false
-}
+lspconfig.ts_ls.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+	on_init = on_init,
+	root_dir = lspconfig.util.root_pattern("package.json"),
+	single_file_support = false,
+})
+lspconfig.rust_analyzer.setup({
+	-- on_attach = on_attach,
+	on_attach = function(client, bufnr)
+		vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+	end,
+	capabilities = capabilities,
+	on_init = on_init,
+	settings = {
+		["rust-analyzer"] = {
+			diagnostics = {
+				enable = true,
+				experimental = {
+					enable = true,
+				},
+			},
+			imports = {
+				granularity = {
+					group = "module",
+				},
+				prefix = "self",
+			},
+			cargo = {
+				buildScripts = {
+					enable = true,
+				},
+			},
+			procMacro = {
+				enable = true,
+			},
+		},
+	},
+})
