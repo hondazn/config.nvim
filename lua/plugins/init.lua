@@ -20,10 +20,10 @@ return {
 					{ section = "startup" },
 				},
 			},
-			-- debug = { enabled = true },
-			-- indent = { enabled = true },
-			-- input = { enabled = true },
-			-- notifier = { enabled = true },
+			debug = { enabled = false },
+			indent = { enabled = false },
+			input = { enabled = false },
+			notifier = { enabled = false },
 			quickfile = { enabled = false },
 			scratch = { enabled = false },
 			scroll = { enabled = true },
@@ -37,6 +37,9 @@ return {
 		lazy = false,
 		opts = {
 			view_options = { show_hidden = true },
+			keymaps = {
+				["q"] = { "actions.close", mode = "n" },
+			}
 		},
 		dependencies = { { "echasnovski/mini.icons", opts = {} } },
 	},
@@ -344,16 +347,6 @@ return {
 					-- ["i"] = { char = " ", hl_group = "ObsidianImportant" },
 					-- ["p"] = { char = " ", hl_group = "ObsidianImportant" },
 					-- ["c"] = { char = " ", hl_group = "ObsidianImportant" },
-				},
-			},
-			workspaces = {
-				{
-					name = "personal",
-					path = "~/git/github.com/hondazn/personal.obsidian",
-				},
-				{
-					name = "public",
-					path = "~/git/github.com/hondazn/public.obsidian",
 				},
 			},
 
