@@ -10,6 +10,7 @@ return {
 			-- or leave it empty to use the default settings
 			-- refer to the configuration section below
 			bigfile = { enabled = true },
+			bufdelete = { enabled = false },
 			dashboard = {
 				enabled = true,
 				sections = {
@@ -39,7 +40,7 @@ return {
 			view_options = { show_hidden = true },
 			keymaps = {
 				["q"] = { "actions.close", mode = "n" },
-			}
+			},
 		},
 		dependencies = { { "echasnovski/mini.icons", opts = {} } },
 	},
@@ -349,7 +350,14 @@ return {
 					-- ["c"] = { char = " ", hl_group = "ObsidianImportant" },
 				},
 			},
-
+			workspaces = {
+				{
+					name = "buf-parent",
+					path = function()
+						return assert(vim.fs.dirname(vim.api.nvim_buf_get_name(0)))
+					end,
+				},
+			},
 			-- see below for full list of options 👇
 		},
 	},
