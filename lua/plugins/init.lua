@@ -13,8 +13,16 @@ return {
 			bufdelete = { enabled = false },
 			dashboard = {
 				enabled = true,
+				width = 80,
 				sections = {
-					{ section = "header" },
+					-- { section = "header" },
+					{
+						section = "terminal",
+						cmd = "bash -c '~/.config/nvim/scripts/n.bash' 2>/dev/null",
+						indent = 30,
+						height = 15,
+						caching = false,
+					},
 					{ icon = " ", title = "Projects", section = "projects", indent = 2, padding = 1 },
 					{ icon = " ", title = "Recent Files", section = "recent_files", indent = 2, padding = 1 },
 					{ icon = " ", title = "Keymaps", section = "keys", indent = 2, padding = 1 },
