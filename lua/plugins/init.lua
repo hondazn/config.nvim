@@ -1,4 +1,5 @@
 return {
+	"vim-jp/vimdoc-ja",
 	{ "folke/which-key.nvim", lazy = true, event = "VeryLazy", opts = {} },
 	{
 		"folke/snacks.nvim",
