@@ -76,7 +76,15 @@ return {
 		lazy = true,
 		event = { "BufReadPost", "BufNewFile" },
 		opts = {
-			formatters_by_ft = { lua = { "stylua" } },
+			formatters_by_ft = {
+				lua = { "stylua" },
+				typescript = { "biome-check", stop_after_first = true },
+				javascript = { "biome-check", stop_after_first = true },
+				typescriptreact = { "biome-check", stop_after_first = true },
+				javascriptreact = { "biome-check", stop_after_first = true },
+				json = { "biome" },
+				jsonc = { "biome" },
+			},
 		},
 	},
 	{
@@ -87,7 +95,7 @@ return {
 		build = ":TSUpdate",
 		config = function()
 			require("config.treesitter")
-		end
+		end,
 	},
 	{
 		"nvim-treesitter/nvim-treesitter-context",
