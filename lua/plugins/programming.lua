@@ -210,7 +210,8 @@ return {
 	{
 		"rachartier/tiny-inline-diagnostic.nvim",
 		lazy = true,
-		event = "VeryLazy", -- Or `LspAttach`
+		-- event = "VeryLazy", -- Or `LspAttach`
+		event = { "BufReadPost", "BufNewFile" },
 		priority = 1000, -- needs to be loaded in first
 		config = function()
 			require("tiny-inline-diagnostic").setup({
@@ -224,7 +225,8 @@ return {
 	{
 		"ray-x/lsp_signature.nvim",
 		lazy = true,
-		event = "VeryLazy",
+		-- event = "VeryLazy",
+		event = { "BufReadPost", "BufNewFile" },
 		opts = {},
 	},
 	{
@@ -248,13 +250,13 @@ return {
 		"kylechui/nvim-surround",
 		version = "*", -- Use for stability; omit to use `main` branch for the latest features
 		lazy = true,
-		event = "VeryLazy",
+		event = "InsertEnter",
 		opts = {},
 	},
 	{
 		"onsails/lspkind.nvim",
 		lazy = true,
-		event = "VeryLazy",
+		event = "InsertEnter",
 		opts = {},
 	},
 	{
@@ -266,7 +268,7 @@ return {
 	{
 		"kevinhwang91/nvim-bqf",
 		lazy = true,
-		event = "VeryLazy",
+		event = { "BufReadPost", "BufNewFile" },
 		opts = {},
 	},
 	{

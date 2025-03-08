@@ -18,14 +18,28 @@ map("n", "<Esc>", "<cmd>noh<CR>", { desc = "general clear highlights" })
 ---- oil
 map("n", "-", "<CMD>Oil --float<CR>", { desc = "Open parent directory" })
 
+---- bufferline
+map("n", "<C-t>", "<CMD>BufferPrevious<CR>", { desc = "prev buffer" })
+map("n", "<C-S-t>", "<CMD>BufferNext<CR>", { desc = "next buffer" })
+map("n", "<leader>bd", "<CMD>BufferClose<CR>", { desc = "delete current buffer" })
+map("n", "<leader>bo", "<CMD>BufferCloseAllButCurrentOrPinned<CR>", { desc = "Close every buffer except pinned buffers or the current buffer" })
+
 ---- telescope
-local telescope = require("telescope.builtin")
-map("n", "<leader>ff", telescope.find_files, { desc = "Telescope find files" })
-map("n", "<leader>fg", telescope.live_grep, { desc = "Telescope live grep" })
-map("n", "<leader>fb", telescope.buffers, { desc = "Telescope buffers" })
-map("n", "<leader>fh", telescope.oldfiles, { desc = "Telescope file history" })
-map("n", "<leader>fc", telescope.colorscheme, { desc = "Telescope colorscheme" })
+map("n", "<C-S-p>", "<CMD>Telescope commands<CR>", { desc = "Telescope commands" })
+map("n", "<leader>fc", "<CMD>Telescope commands<CR>", { desc = "Telescope commands" })
+map("n", "<leader>ff", "<CMD>Telescope find_files<CR>", { desc = "Telescope find files" })
+map("n", "<leader>fg", "<CMD>Telescope live_grep<CR>", { desc = "Telescope live grep" })
+map("n", "<leader>fb", "<CMD>Telescope buffers<CR>", { desc = "Telescope buffers" })
+map("n", "<leader>fh", "<CMD>Telescope oldfiles<CR>", { desc = "Telescope file history" })
+map("n", "<leader>ft", "<CMD>Telescope colorscheme<CR>", { desc = "Telescope colorscheme theme" })
 map("n", "<leader>fo", "<CMD>Telescope smart_open<CR>", { desc = "Telescope smart open" })
+
+---- noice
+map("n", "<leader>nh", "<CMD>Noice history<CR>", { desc = "Noice" })
+map("n", "<leader>nn", "<CMD>Noice dismiss<CR>", { desc = "Noice" })
+
+---- luasnip
+map("i", "<C-k>", function() require("luasnip").expand() end, { desc = "Luasnip expand or jump" })
 
 ---- lsp-config
 map("n", "<leader>ld", "<CMD>lua vim.lsp.buf.definition()<CR>", { desc = "LSP go to definition" })
@@ -55,29 +69,13 @@ map("n", "<leader>ghc", "<CMD>Octo comment add<CR>", { desc = "Octo: Comment Add
 map("n", "<leader>ghn", "<CMD>Octo issue create<CR>", { desc = "Octo: Issue Create" })
 
 ---- obsidian
-map("n", "<leader>oo", "<CMD>ObsidianOpen<CR>", { desc = "Obsidian: Open" })
-map("n", "<leader>oy", "<CMD>ObsidianYesterday<CR>", { desc = "Obsidian: Open" })
-map("n", "<leader>od", "<CMD>ObsidianToday<CR>", { desc = "Obsidian: Open" })
-map("n", "<leader>ot", "<CMD>ObsidianTomorrow<CR>", { desc = "Obsidian: Open" })
-map("n", "<C-t>", "<CMD>ObsidianToggleCheckbox<CR>", { desc = "Obsidian: Open" })
+-- map("n", "<leader>oo", "<CMD>ObsidianOpen<CR>", { desc = "Obsidian: Open" })
+-- map("n", "<leader>oy", "<CMD>ObsidianYesterday<CR>", { desc = "Obsidian: Open" })
+-- map("n", "<leader>od", "<CMD>ObsidianToday<CR>", { desc = "Obsidian: Open" })
+-- map("n", "<leader>ot", "<CMD>ObsidianTomorrow<CR>", { desc = "Obsidian: Open" })
+-- map("n", "<C-t>", "<CMD>ObsidianToggleCheckbox<CR>", { desc = "Obsidian: Open" })
 
 ---- snacks
-map("n", "<leader>z", function()
-	Snacks.zen()
-end, { desc = "Toggle Zen Mode" })
-
-map("n", "<leader>Z", function()
-	Snacks.zen.zoom()
-end, { desc = "Toggle Zoom" })
-
-map("n", "<leader>n", function()
-	Snacks.notifier.show_history()
-end, { desc = "Notification History" })
-
-map("n", "<leader>bd", function()
-	Snacks.bufdelete()
-end, { desc = "Delete Buffer" })
-
 map("n", "<leader>cR", function()
 	Snacks.rename.rename_file()
 end, { desc = "Rename File" })
@@ -101,10 +99,6 @@ end, { desc = "Lazygit" })
 map("n", "<leader>gl", function()
 	Snacks.lazygit.log()
 end, { desc = "Lazygit Log (cwd)" })
-
-map("n", "<leader>un", function()
-	Snacks.notifier.hide()
-end, { desc = "Dismiss All Notifications" })
 
 map("n", "<leader>tt", function()
 	Snacks.terminal()

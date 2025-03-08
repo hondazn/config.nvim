@@ -1,5 +1,6 @@
 return {
-	{ "folke/which-key.nvim", lazy = true, event = "VeryLazy", opts = {} },
+	{ "vim-jp/vimdoc-ja" },
+	{ "folke/which-key.nvim" },
 	{
 		"folke/snacks.nvim",
 		priority = 1000,
@@ -38,7 +39,7 @@ return {
 			scroll = { enabled = true },
 			-- statuscolumn = { enabled = true },
 			words = { enabled = true },
-			lazygit = { enabled = true, configure = false },
+			lazygit = { enabled = true, configure = true },
 		},
 	},
 	{
@@ -88,7 +89,7 @@ return {
 	{
 		"folke/flash.nvim",
 		lazy = true,
-		event = "VeryLazy",
+		event = { "BufReadPre", "BufNewFile" },
 		opts = {},
 		keys = {
 			-- {
@@ -190,8 +191,8 @@ return {
 	},
 	{
 		"shellRaining/hlchunk.nvim",
-		event = { "BufReadPre", "BufNewFile" },
 		lazy = true,
+		event = { "BufReadPre", "BufNewFile" },
 		config = function()
 			require("hlchunk").setup({
 				chunk = { enable = true },
@@ -208,7 +209,7 @@ return {
 	{
 		"b0o/incline.nvim",
 		lazy = true,
-		event = "VeryLazy",
+		event = { "BufReadPre", "BufNewFile" },
 		opts = {},
 	},
 	{
@@ -367,10 +368,13 @@ return {
 				},
 			},
 			-- see below for full list of options 👇
+			disable_frontmatter = true,
 		},
 	},
 	{
 		"pwntester/octo.nvim",
+		lazy = true,
+		cmd = "Octo",
 		dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim", "nvim-tree/nvim-web-devicons" },
 		-- config = function()
 		-- 	require("octo").setup {
