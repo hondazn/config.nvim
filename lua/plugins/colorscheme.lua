@@ -6,14 +6,14 @@ return {
 			groups = {
 				all = {
 					-- telescope theme
-					TelescopeNormal = { bg = "bg0", fg = "fg0" },
-					TelescopeBorder = { bg = "bg0", fg = "bg0" },
-					TelescopePromptNormal = { bg = "bg3" },
-					TelescopePromptBorder = { bg = "bg3", fg = "bg3" },
-					TelescopePromptTitle = { bg = "bg3", fg = "bg3" },
-					TelescopePromptCounter = { fg = "fg3" },
-					TelescopeResultsTitle = { bg = "bg0", fg = "bg0" },
-					TelescopePreviewTitle = { bg = "bg0", fg = "bg0" },
+					-- TelescopeNormal = { bg = "bg0", fg = "fg0" },
+					-- TelescopeBorder = { bg = "bg0", fg = "bg0" },
+					-- TelescopePromptNormal = { bg = "bg3" },
+					-- TelescopePromptBorder = { bg = "bg3", fg = "bg3" },
+					-- TelescopePromptTitle = { bg = "bg3", fg = "bg3" },
+					-- TelescopePromptCounter = { fg = "fg3" },
+					-- TelescopeResultsTitle = { bg = "bg0", fg = "bg0" },
+					-- TelescopePreviewTitle = { bg = "bg0", fg = "bg0" },
 					-- barbar theme
 					BufferCurrent = { bg = "bg3" },
 					BufferCurrentADDED = { bg = "bg3" },

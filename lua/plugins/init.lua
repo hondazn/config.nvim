@@ -58,6 +58,7 @@ return {
 		tag = "0.1.8",
 		dependencies = { "nvim-lua/plenary.nvim" },
 		lazy = true,
+		event = "VeryLazy",
 		opts = {
 			defaults = {
 				prompt_prefix = "   ",
@@ -259,7 +260,7 @@ return {
 		-- dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" }, -- if you prefer nvim-web-devicons
 		lazy = true,
 		event = { "BufReadPre", "BufNewFile" },
-		ft = { "markdown", "Avante", "octo" },
+		ft = { "markdown", "Avante", "octo", "codecompanion" },
 		---@module 'render-markdown'
 		---@type render.md.UserConfig
 		opts = {

@@ -13,6 +13,8 @@ map("i", "<C-p>", "<Up>")
 map("i", "<C-a>", "<Home>")
 map("i", "<C-e>", "<End>")
 map("n", "<Esc>", "<cmd>noh<CR>", { desc = "general clear highlights" })
+map("n", "<leader>/", "gcc", { desc = "Comment line", remap = true })
+map("v", "<leader>/", "gc", { desc = "Comment line", remap = true })
 
 -- plugins keymap
 ---- oil
