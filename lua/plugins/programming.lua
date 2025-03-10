@@ -123,6 +123,7 @@ return {
 				javascriptreact = { "biome-check", stop_after_first = true },
 				json = { "biome" },
 				jsonc = { "biome" },
+				html = { "biome-check" },
 			},
 		},
 	},

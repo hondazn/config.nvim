@@ -49,6 +49,8 @@ return {
 			view_options = { show_hidden = true },
 			keymaps = {
 				["q"] = { "actions.close", mode = "n" },
+				["<C-_>"] = { "actions.select", opts = { horizontal = true } },
+				["<C-\\>"] = { "actions.select", opts = { vertical = true } },
 			},
 		},
 		dependencies = { { "echasnovski/mini.icons", opts = {} } },
@@ -73,9 +75,16 @@ return {
 					width = 0.87,
 					height = 0.80,
 				},
-				--mappings = {
-				--	n = { ["q"] = require("telescope.actions").close },
-				--},
+				mappings = {
+					i = {
+						["<C-_>"] = require("telescope.actions").select_horizontal,
+						["<C-\\>"] = require("telescope.actions").select_vertical,
+					},
+					n = {
+						["<C-_>"] = require("telescope.actions").select_horizontal,
+						["<C-\\>"] = require("telescope.actions").select_vertical,
+					},
+				},
 			},
 			pickers = {
 				colorscheme = {
