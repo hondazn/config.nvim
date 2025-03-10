@@ -13,11 +13,7 @@ end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 
-lspconfig.lua_ls.setup({
-	on_attach = on_attach,
-	capabirities = capabilities,
-	on_init = on_init,
-})
+lspconfig.lua_ls.setup({})
 lspconfig.denols.setup({
 	on_attach = on_attach,
 	capabirities = capabilities,
@@ -31,6 +27,7 @@ lspconfig.ts_ls.setup({
 	root_dir = lspconfig.util.root_pattern("package.json"),
 	single_file_support = false,
 })
+lspconfig.biome.setup({})
 lspconfig.rust_analyzer.setup({
 	-- on_attach = on_attach,
 	on_attach = function(client, bufnr)
@@ -63,3 +60,4 @@ lspconfig.rust_analyzer.setup({
 		},
 	},
 })
+lspconfig.intelephense.setup({})
