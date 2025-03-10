@@ -76,7 +76,14 @@ return {
 		lazy = true,
 		event = { "BufReadPost", "BufNewFile" },
 		opts = {
-			formatters_by_ft = { lua = { "stylua" } },
+			formatters_by_ft = { lua = { "stylua" },
+				javascript = { "biome-check" },
+				typescript = { "biome-check" },
+				javascriptreact = { "biome-check" },
+				typescriptreact = { "biome-check" },
+				json = { "biome-check" },
+				html = { "biome-check" },
+			},
 		},
 	},
 	{
