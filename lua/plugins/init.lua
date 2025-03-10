@@ -77,12 +77,12 @@ return {
 				},
 				mappings = {
 					i = {
-						["<C-_>"] = require("telescope.actions").select_horizontal,
-						["<C-\\>"] = require("telescope.actions").select_vertical,
+						["<C-_>"] = "select_horizontal",
+						["<C-\\>"] = "select_vertical",
 					},
 					n = {
-						["<C-_>"] = require("telescope.actions").select_horizontal,
-						["<C-\\>"] = require("telescope.actions").select_vertical,
+						["<C-_>"] = "select_horizontal",
+						["<C-\\>"] = "select_vertical",
 					},
 				},
 			},
