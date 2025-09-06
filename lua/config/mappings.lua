@@ -130,7 +130,7 @@ map("n", "<leader>N", function()
 end, { desc = "Neovim News" })
 
 -- Enable <Tab> to indent if no suggestions are available
-vim.keymap.set("i", "<Tab>", function()
+vim.keymap.set("i", "<C-l>", function()
 	if require("copilot.suggestion").is_visible() then
 		require("copilot.suggestion").accept()
 	else
