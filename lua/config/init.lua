@@ -1,5 +1,6 @@
 vim.schedule(function()
 	require("config.mappings")
+	require("config.lsp")
 end)
 
 local opt = vim.opt

@@ -3,9 +3,6 @@ return {
 		"neovim/nvim-lspconfig",
 		lazy = true,
 		event = { "UIEnter", "BufReadPost", "BufNewFile" },
-		config = function()
-			require("config.lspconfig")
-		end,
 	},
 	-- AI coding
 	{
