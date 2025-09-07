@@ -1,5 +1,6 @@
 vim.schedule(function()
 	require("config.mappings")
+	require("config.diagnostic")
 	require("config.lsp")
 end)
 

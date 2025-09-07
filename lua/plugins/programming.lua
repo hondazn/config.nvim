@@ -238,21 +238,6 @@ return {
 		},
 	},
 	{
-		"rachartier/tiny-inline-diagnostic.nvim",
-		lazy = true,
-		-- event = "VeryLazy", -- Or `LspAttach`
-		event = { "BufReadPost", "BufNewFile" },
-		priority = 1000, -- needs to be loaded in first
-		config = function()
-			require("tiny-inline-diagnostic").setup({
-				hi = {},
-				options = {
-					multilines = true,
-				},
-			})
-		end,
-	},
-	{
 		"ray-x/lsp_signature.nvim",
 		lazy = true,
 		-- event = "VeryLazy",
