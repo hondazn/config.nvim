@@ -27,8 +27,6 @@ o.mouse = "a"
 o.number = true
 o.numberwidth = 2
 
-opt.shortmess:append("sI")
-
 o.signcolumn = "yes"
 o.splitbelow = true
 o.splitright = true
@@ -40,3 +38,9 @@ g.loaded_perl_provider = 0
 g.loaded_ruby_provider = 0
 
 opt.helplang = 'ja'
+opt.shortmess:append("sI")
+opt.scrolloff = 16
+
+-- for GUI
+o.guifont = "PlemolJP Console NF:h14"
+g.neovide_cursor_vfx_mode = "sonicboom"
