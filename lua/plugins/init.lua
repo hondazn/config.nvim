@@ -36,7 +36,7 @@ return {
 			notifier = { enabled = false },
 			quickfile = { enabled = false },
 			scratch = { enabled = false },
-			scroll = { enabled = true },
+			scroll = { enabled = false },
 			-- statuscolumn = { enabled = true },
 			words = { enabled = true },
 			lazygit = { enabled = true, configure = true },
