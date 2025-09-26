@@ -24,7 +24,12 @@ map("n", "-", "<CMD>Oil --float<CR>", { desc = "Open parent directory" })
 map("n", "<C-t>", "<CMD>BufferPrevious<CR>", { desc = "prev buffer" })
 map("n", "<C-S-t>", "<CMD>BufferNext<CR>", { desc = "next buffer" })
 map("n", "<leader>bd", "<CMD>BufferClose<CR>", { desc = "delete current buffer" })
-map("n", "<leader>bo", "<CMD>BufferCloseAllButCurrentOrPinned<CR>", { desc = "Close every buffer except pinned buffers or the current buffer" })
+map(
+	"n",
+	"<leader>bo",
+	"<CMD>BufferCloseAllButCurrentOrPinned<CR>",
+	{ desc = "Close every buffer except pinned buffers or the current buffer" }
+)
 
 ---- telescope
 map("n", "<C-S-p>", "<CMD>Telescope commands<CR>", { desc = "Telescope commands" })
@@ -41,7 +46,9 @@ map("n", "<leader>nh", "<CMD>Noice history<CR>", { desc = "Noice" })
 map("n", "<leader>nn", "<CMD>Noice dismiss<CR>", { desc = "Noice" })
 
 ---- luasnip
-map("i", "<C-k>", function() require("luasnip").expand() end, { desc = "Luasnip expand or jump" })
+map("i", "<C-k>", function()
+	require("luasnip").expand()
+end, { desc = "Luasnip expand or jump" })
 
 ---- lsp-config
 map("n", "<leader>ld", "<CMD>lua vim.lsp.buf.definition()<CR>", { desc = "LSP go to definition" })
@@ -78,6 +85,7 @@ map("n", "<leader>ghn", "<CMD>Octo issue create<CR>", { desc = "Octo: Issue Crea
 -- map("n", "<C-t>", "<CMD>ObsidianToggleCheckbox<CR>", { desc = "Obsidian: Open" })
 
 ---- snacks
+--- @module "snacks"
 map("n", "<leader>cR", function()
 	Snacks.rename.rename_file()
 end, { desc = "Rename File" })

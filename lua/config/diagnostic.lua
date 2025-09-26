@@ -8,7 +8,7 @@ vim.diagnostic.config({
 	-- 浮動ウィンドウでエラー詳細を表示する
 	float = {
 		-- source = "always", -- ソース元（clippyなど）を常に表示
-		source = "if_many", -- ソース元（clippyなど）を常に表示
+		source = "if_many",
 	},
 	-- 行の右側にエラー内容を仮想テキストとして表示する
 	-- これがリアルタイムフィードバックに最も効果的です
