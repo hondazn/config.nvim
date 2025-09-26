@@ -29,5 +29,6 @@ return {
 		-- statuscolumn = { enabled = true },
 		words = { enabled = true },
 		lazygit = { enabled = true, configure = true },
+		pickers = { enabled = true },
 	},
 }

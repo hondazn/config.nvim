@@ -9,7 +9,7 @@ return {
 	opts = {
 		display = {
 			action_palette = {
-				provider = "telescope",
+				provider = "snacks",
 			},
 		},
 		strategies = {
@@ -18,12 +18,12 @@ return {
 				slash_commands = {
 					["file"] = {
 						opts = {
-							provider = "telescope",
+							provider = "snacks",
 						},
 					},
 					["buffer"] = {
 						opts = {
-							provider = "telescope",
+							provider = "snacks",
 						},
 					},
 				},

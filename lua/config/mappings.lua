@@ -31,24 +31,12 @@ map(
 	{ desc = "Close every buffer except pinned buffers or the current buffer" }
 )
 
----- telescope
-map("n", "<C-S-p>", "<CMD>Telescope commands<CR>", { desc = "Telescope commands" })
-map("n", "<leader>fc", "<CMD>Telescope commands<CR>", { desc = "Telescope commands" })
-map("n", "<leader>ff", "<CMD>Telescope find_files<CR>", { desc = "Telescope find files" })
-map("n", "<leader>fg", "<CMD>Telescope live_grep<CR>", { desc = "Telescope live grep" })
-map("n", "<leader>fb", "<CMD>Telescope buffers<CR>", { desc = "Telescope buffers" })
-map("n", "<leader>fh", "<CMD>Telescope oldfiles<CR>", { desc = "Telescope file history" })
-map("n", "<leader>ft", "<CMD>Telescope colorscheme<CR>", { desc = "Telescope colorscheme theme" })
-map("n", "<leader>fo", "<CMD>Telescope smart_open<CR>", { desc = "Telescope smart open" })
-
 ---- noice
 map("n", "<leader>nh", "<CMD>Noice history<CR>", { desc = "Noice" })
 map("n", "<leader>nn", "<CMD>Noice dismiss<CR>", { desc = "Noice" })
 
 ---- luasnip
-map("i", "<C-k>", function()
-	require("luasnip").expand()
-end, { desc = "Luasnip expand or jump" })
+map("i", "<C-k>", function() require("luasnip").expand() end, { desc = "Luasnip expand or jump" })
 
 ---- lsp-config
 map("n", "<leader>ld", "<CMD>lua vim.lsp.buf.definition()<CR>", { desc = "LSP go to definition" })
@@ -64,9 +52,7 @@ map("n", "<leader>lt", "<CMD>lua vim.lsp.buf.type_definition()<CR>", { desc = "L
 map("n", "<leader>lR", "<CMD>lua vim.lsp.buf.rename()<CR>", { desc = "LSP rename" })
 
 ---- formatting
-map("n", "<leader>k", function()
-	require("conform").format({ lsp_fallback = true })
-end, { desc = "Format File" })
+map("n", "<leader>k", function() require("conform").format({ lsp_fallback = true }) end, { desc = "Format File" })
 
 ---- aerial
 map("n", "<leader>lm", "<CMD>AerialToggle!<CR>", { desc = "Aerial: Toggle Code Map" })
@@ -86,56 +72,42 @@ map("n", "<leader>ghn", "<CMD>Octo issue create<CR>", { desc = "Octo: Issue Crea
 
 ---- snacks
 --- @module "snacks"
-map("n", "<leader>cR", function()
-	Snacks.rename.rename_file()
-end, { desc = "Rename File" })
 
-map({ "n", "v" }, "<leader>gB", function()
-	Snacks.gitbrowse()
-end, { desc = "Git Browse" })
-
-map("n", "<leader>gb", function()
-	Snacks.git.blame_line()
-end, { desc = "Git Blame Line" })
-
-map("n", "<leader>gf", function()
-	Snacks.lazygit.log_file()
-end, { desc = "Lazygit Current File History" })
-
-map("n", "<leader>gg", function()
-	Snacks.lazygit()
-end, { desc = "Lazygit" })
-
-map("n", "<leader>gl", function()
-	Snacks.lazygit.log()
-end, { desc = "Lazygit Log (cwd)" })
-
-map("n", "<leader>tt", function()
-	Snacks.terminal()
-end, { desc = "Toggle Terminal" })
-
-map({ "n", "t" }, "]]", function()
-	Snacks.words.jump(vim.v.count1)
-end, { desc = "Next Reference" })
-
-map({ "n", "t" }, "[[", function()
-	Snacks.words.jump(-vim.v.count1)
-end, { desc = "Prev Reference" })
-
-map("n", "<leader>N", function()
-	Snacks.win({
-		file = vim.api.nvim_get_runtime_file("doc/news.txt", false)[1],
-		width = 0.6,
-		height = 0.6,
-		wo = {
-			spell = false,
-			wrap = false,
-			signcolumn = "yes",
-			statuscolumn = " ",
-			conceallevel = 3,
-		},
-	})
-end, { desc = "Neovim News" })
+map("n", "<C-S-p>", function() Snacks.picker.commands() end, { desc = "Select commands" })
+map("n", "<leader>fc", function() Snacks.picker.commands() end, { desc = "Select commands" })
+map("n", "<leader>ff", function() Snacks.picker.files() end, { desc = "Select find files" })
+map("n", "<leader>fg", function() Snacks.picker.grep() end, { desc = "Select live grep" })
+map("n", "<leader>fb", function() Snacks.picker.buffers({ focus = "list" }) end, { desc = "Select buffers" })
+map("n", "<leader>ft", function() Snacks.picker.colorschemes() end, { desc = "Select colorscheme theme" })
+map("n", "<leader>fo", function() Snacks.picker.smart() end, { desc = "Select smart open" })
+map("n", "<leader>fe", function() Snacks.picker.explorer() end, { desc = "Select smart open" })
+map("n", "<leader>cR", function() Snacks.rename.rename_file() end, { desc = "Rename File" })
+map({ "n", "v" }, "<leader>gB", function() Snacks.gitbrowse() end, { desc = "Git Browse" })
+map("n", "<leader>gb", function() Snacks.git.blame_line() end, { desc = "Git Blame Line" })
+map("n", "<leader>gf", function() Snacks.lazygit.log_file() end, { desc = "Lazygit Current File History" })
+map("n", "<leader>gg", function() Snacks.lazygit() end, { desc = "Lazygit" })
+map("n", "<leader>gl", function() Snacks.lazygit.log() end, { desc = "Lazygit Log (cwd)" })
+map({ "n", "t" }, "]]", function() Snacks.words.jump(vim.v.count1) end, { desc = "Next Reference" })
+map({ "n", "t" }, "[[", function() Snacks.words.jump(-vim.v.count1) end, { desc = "Prev Reference" })
+map(
+	"n",
+	"<leader>N",
+	function()
+		Snacks.win({
+			file = vim.api.nvim_get_runtime_file("doc/news.txt", false)[1],
+			width = 0.6,
+			height = 0.6,
+			wo = {
+				spell = false,
+				wrap = false,
+				signcolumn = "yes",
+				statuscolumn = " ",
+				conceallevel = 3,
+			},
+		})
+	end,
+	{ desc = "Neovim News" }
+)
 
 -- Enable <Tab> to indent if no suggestions are available
 vim.keymap.set("i", "<C-l>", function()
