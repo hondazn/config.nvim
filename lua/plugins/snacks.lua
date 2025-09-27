@@ -39,6 +39,6 @@ return {
 		toggle = { enabled = false },
 		words = { enabled = true },
 		lazygit = { enabled = true, configure = true },
-		pickers = { enabled = true },
+		picker = { enabled = true, sources = { files = { hidden = true } } },
 	},
 }
