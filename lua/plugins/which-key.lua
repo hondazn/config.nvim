@@ -1,1 +1,3 @@
-return { "folke/which-key.nvim" }
+return { "folke/which-key.nvim", opts = {
+	delay = 0,
+} }
