@@ -31,25 +31,21 @@ map(
 	{ desc = "Close every buffer except pinned buffers or the current buffer" }
 )
 
----- noice
-map("n", "<leader>nh", "<CMD>Noice history<CR>", { desc = "Noice" })
-map("n", "<leader>nn", "<CMD>Noice dismiss<CR>", { desc = "Noice" })
-
 ---- luasnip
 map("i", "<C-k>", function() require("luasnip").expand() end, { desc = "Luasnip expand or jump" })
 
 ---- lsp-config
-map("n", "<leader>ld", "<CMD>lua vim.lsp.buf.definition()<CR>", { desc = "LSP go to definition" })
-map("n", "<leader>lh", "<CMD>lua vim.lsp.buf.hover()<CR>", { desc = "LSP hover" })
-map("n", "<leader>lr", "<CMD>lua vim.lsp.buf.references()<CR>", { desc = "LSP references" })
-map("n", "<leader>ls", "<CMD>lua vim.lsp.buf.signature_help()<CR>", { desc = "LSP signature help" })
-map("n", "<leader>lf", "<CMD>lua vim.lsp.buf.formatting()<CR>", { desc = "LSP formatting" })
-map("n", "<leader>la", "<CMD>lua vim.lsp.buf.code_action()<CR>", { desc = "LSP code action" })
-map("n", "<leader>lw", "<CMD>lua vim.lsp.buf.workspace_symbol()<CR>", { desc = "LSP workspace symbol" })
-map("n", "<leader>lD", "<CMD>lua vim.lsp.buf.declaration()<CR>", { desc = "LSP go to declaration" })
-map("n", "<leader>li", "<CMD>lua vim.lsp.buf.implementation()<CR>", { desc = "LSP go to implementation" })
-map("n", "<leader>lt", "<CMD>lua vim.lsp.buf.type_definition()<CR>", { desc = "LSP go to type definition" })
-map("n", "<leader>lR", "<CMD>lua vim.lsp.buf.rename()<CR>", { desc = "LSP rename" })
+map("n", "<leader>ld", function() vim.lsp.buf.definition() end, { desc = "LSP go to definition" })
+map("n", "<leader>lh", function() vim.lsp.buf.hover() end, { desc = "LSP hover" })
+map("n", "<leader>lr", function() vim.lsp.buf.references() end, { desc = "LSP references" })
+map("n", "<leader>ls", function() vim.lsp.buf.signature_help() end, { desc = "LSP signature help" })
+map("n", "<leader>lf", function() vim.lsp.buf.formatting() end, { desc = "LSP formatting" })
+map("n", "<leader>la", function() vim.lsp.buf.code_action() end, { desc = "LSP code action" })
+map("n", "<leader>lw", function() vim.lsp.buf.workspace_symbol() end, { desc = "LSP workspace symbol" })
+map("n", "<leader>lD", function() vim.lsp.buf.declaration() end, { desc = "LSP go to declaration" })
+map("n", "<leader>li", function() vim.lsp.buf.implementation() end, { desc = "LSP go to implementation" })
+map("n", "<leader>lt", function() vim.lsp.buf.type_definition() end, { desc = "LSP go to type definition" })
+map("n", "<leader>lR", function() vim.lsp.buf.rename() end, { desc = "LSP rename" })
 
 ---- formatting
 map("n", "<leader>k", function() require("conform").format({ lsp_fallback = true }) end, { desc = "Format File" })
@@ -70,25 +66,35 @@ map("n", "<leader>ghn", "<CMD>Octo issue create<CR>", { desc = "Octo: Issue Crea
 -- map("n", "<leader>ot", "<CMD>ObsidianTomorrow<CR>", { desc = "Obsidian: Open" })
 -- map("n", "<C-t>", "<CMD>ObsidianToggleCheckbox<CR>", { desc = "Obsidian: Open" })
 
+---- noice
+map("n", "<leader>nn", "<CMD>Noice dismiss<CR>", { desc = "Noice" })
+
 ---- snacks
 --- @module "snacks"
 
+map("n", "<leader>nh", function() Snacks.notifier.show_history() end, { desc = "Notify History" })
 map("n", "<C-S-p>", function() Snacks.picker.commands() end, { desc = "Select commands" })
 map("n", "<leader>fc", function() Snacks.picker.commands() end, { desc = "Select commands" })
 map("n", "<leader>ff", function() Snacks.picker.files() end, { desc = "Select find files" })
 map("n", "<leader>fg", function() Snacks.picker.grep() end, { desc = "Select live grep" })
-map("n", "<leader>fb", function() Snacks.picker.buffers({ focus = "list" }) end, { desc = "Select buffers" })
+map("n", "<leader>o", function() Snacks.picker.smart() end, { desc = "Select smart open" })
+map("n", "<leader>e", function() Snacks.picker.explorer() end, { desc = "Open Explorer" })
 map("n", "<leader>ft", function() Snacks.picker.colorschemes() end, { desc = "Select colorscheme theme" })
-map("n", "<leader>fo", function() Snacks.picker.smart() end, { desc = "Select smart open" })
-map("n", "<leader>fe", function() Snacks.picker.explorer() end, { desc = "Select smart open" })
 map("n", "<leader>cR", function() Snacks.rename.rename_file() end, { desc = "Rename File" })
 map({ "n", "v" }, "<leader>gB", function() Snacks.gitbrowse() end, { desc = "Git Browse" })
+map("n", "<leader>gg", function() Snacks.lazygit() end, { desc = "Lazygit" })
 map("n", "<leader>gb", function() Snacks.git.blame_line() end, { desc = "Git Blame Line" })
 map("n", "<leader>gf", function() Snacks.lazygit.log_file() end, { desc = "Lazygit Current File History" })
-map("n", "<leader>gg", function() Snacks.lazygit() end, { desc = "Lazygit" })
 map("n", "<leader>gl", function() Snacks.lazygit.log() end, { desc = "Lazygit Log (cwd)" })
 map({ "n", "t" }, "]]", function() Snacks.words.jump(vim.v.count1) end, { desc = "Next Reference" })
 map({ "n", "t" }, "[[", function() Snacks.words.jump(-vim.v.count1) end, { desc = "Prev Reference" })
+map("n", "<leader>t", function() Snacks.terminal() end, { desc = "Open Terminal" })
+map(
+	"n",
+	"<leader>p",
+	function() Snacks.picker.buffers({ focus = "list", win = { list = { keys = { ["/"] = false } } } }) end,
+	{ desc = "Select buffers" }
+)
 map(
 	"n",
 	"<leader>N",
