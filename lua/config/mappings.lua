@@ -21,7 +21,7 @@ map("v", "<leader>/", "gc", { desc = "Comment line", remap = true })
 map("n", "-", "<CMD>Oil --float<CR>", { desc = "Open parent directory" })
 
 ---- bufferline
-map("n", "<leader>q", function() Snacks.bufdelete({ force = true }) end, { desc = "Delete current buffer forcely" })
+map("n", "<leader>q", function() Snacks.bufdelete({ force = true }) end, { desc = "Delete current buffer force" })
 map("n", "<leader>bd", function() Snacks.bufdelete.delete() end, { desc = "Delete current buffer" })
 map("n", "<leader>bo", function() Snacks.bufdelete.other() end, { desc = "Delete all buffers except the current one" })
 map("n", "<leader>ba", function() Snacks.bufdelete.all() end, { desc = "Delete all buffers" })
