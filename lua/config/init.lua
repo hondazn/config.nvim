@@ -40,28 +40,30 @@ g.loaded_ruby_provider = 0
 vim.o.clipboard = "unnamedplus"
 
 local function paste()
-  return {
-    vim.fn.split(vim.fn.getreg(""), "\n"),
-    vim.fn.getregtype(""),
-  }
+	return {
+		vim.fn.split(vim.fn.getreg(""), "\n"),
+		vim.fn.getregtype(""),
+	}
 end
 
-vim.g.clipboard = {
-  name = "OSC 52",
-  copy = {
-    ["+"] = require("vim.ui.clipboard.osc52").copy("+"),
-    ["*"] = require("vim.ui.clipboard.osc52").copy("*"),
-  },
-  paste = {
-    ["+"] = paste,
-    ["*"] = paste,
-  },
-}
+if not vim.g.neovide then
+	vim.g.clipboard = {
+		name = "OSC 52",
+		copy = {
+			["+"] = require("vim.ui.clipboard.osc52").copy("+"),
+			["*"] = require("vim.ui.clipboard.osc52").copy("*"),
+		},
+		paste = {
+			["+"] = paste,
+			["*"] = paste,
+		},
+	}
+end
 
 opt.helplang = "ja"
 opt.shortmess:append("sI")
 opt.scrolloff = 16
 
 -- for GUI
-o.guifont = "PlemolJP Console NF:h14"
+o.guifont = "PlemolJP Console NF:h14:w-0.5"
 g.neovide_cursor_vfx_mode = { "sonicboom", "ripple", "torpedo", "pixiedust", "railgun" }
