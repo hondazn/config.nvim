@@ -30,7 +30,10 @@ return {
 			sections = {
 				lualine_a = { "mode" },
 				lualine_b = { "branch", "diff", "diagnostics" },
-				lualine_c = { "filename" },
+				lualine_c = {
+					{ "filename", file_status = false },
+					{ function() return vim.bo.modified and "⚡" or "" end, color = { fg = "#ff9e64" } },
+				},
 				lualine_x = { "encoding", "fileformat" },
 				lualine_y = { "filetype", "lsp_status" },
 				lualine_z = { "location", "progress" },
