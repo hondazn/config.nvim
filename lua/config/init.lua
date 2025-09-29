@@ -64,4 +64,4 @@ opt.scrolloff = 16
 
 -- for GUI
 o.guifont = "PlemolJP Console NF:h14"
-g.neovide_cursor_vfx_mode = "sonicboom"
+g.neovide_cursor_vfx_mode = { "sonicboom", "ripple", "torpedo", "pixiedust", "railgun" }

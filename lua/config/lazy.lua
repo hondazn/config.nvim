@@ -1,6 +1,5 @@
 return {
 	defaults = { lazy = true },
-
 	ui = {
 		icons = {
 			ft = "",
@@ -9,7 +8,6 @@ return {
 			not_loaded = "",
 		},
 	},
-
 	performance = {
 		rtp = {
 			disabled_plugins = {
