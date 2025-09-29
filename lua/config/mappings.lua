@@ -1,7 +1,7 @@
 local map = vim.keymap.set
 
 -- vim keymap
-map("n", ";", ":", { desc = "CMD enter command mode" })
+map({ "n", "v" }, ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
 map("i", "kj", "<ESC>")
 map({ "i", "c" }, "<C-h>", "<BS>")
