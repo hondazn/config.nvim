@@ -23,7 +23,6 @@ quotes=(
   "いまを生きろ。\nCarpe diem.\n- Horace"
   "フォースと共にあらんことを。\nMay the Force be with you.\n- Star Wars"
   "好きなことを仕事にすれば、一生働かなくてすむ。\nChoose a job you love, and you will never have to work a day in your life.\n- Confucius"
-  "知ることだけでは十分ではない、それを使わなくてはならない。やる気だけでは十分ではない、実行しなくてはならない。\nKnowing is not enough, we must apply. Willing is not enough, we must do.\n- Johann Wolfgang von Goethe"
   "かけがえのない人間になるためには、常に他人と違っていなければならない。\nIn order to be irreplaceable one must always be different.\n- Coco Chanel"
   "幸運とは、準備と機会が出会うことである。\nLuck is what happens when preparation meets opportunity.\n- Seneca"
   "失敗を成し遂げなければならない。\nYou have to achieve failure.\n- Tom Platz"
