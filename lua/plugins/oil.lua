@@ -3,9 +3,15 @@ return {
 	lazy = false,
 	opts = {
 		view_options = { show_hidden = true },
+		columns = {
+			"permissions",
+			"size",
+			"mtime",
+			"icon",
+		},
 		keymaps = {
 			["q"] = { "actions.close", mode = "n" },
-			["<C-_>"] = { "actions.select", opts = { horizontal = true } },
+			["<C-->"] = { "actions.select", opts = { horizontal = true } },
 			["<C-\\>"] = { "actions.select", opts = { vertical = true } },
 		},
 	},
