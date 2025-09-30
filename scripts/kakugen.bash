@@ -20,7 +20,7 @@ quotes=(
   "お前を信じる俺を信じろ。\nBelieve in the me that believes in you.\n- Kamina (Tengen Toppa Gurren Lagann)"
   "お前がどれだけ軽い銃を使おうが知ったこっちゃ無いが、俺に言わせりゃロマンに欠けるな。\nI don't give a damn how light a gun you use, but to me, it lacks a philosophy.\n- Daisuke Jigen (Lupin the Third)"
   "誠実な人はいつも孤独なものなのよ\nHonest men are always lonely.\n- Maria Di Vita (Nuovo Cinema Paradiso)"
-  "いまを生きろ。\nCarpe diem.\n- Horace"
+  "今を生きよ。\nCarpe diem.\n- Horace"
   "フォースと共にあらんことを。\nMay the Force be with you.\n- Star Wars"
   "好きなことを仕事にすれば、一生働かなくてすむ。\nChoose a job you love, and you will never have to work a day in your life.\n- Confucius"
   "かけがえのない人間になるためには、常に他人と違っていなければならない。\nIn order to be irreplaceable one must always be different.\n- Coco Chanel"
