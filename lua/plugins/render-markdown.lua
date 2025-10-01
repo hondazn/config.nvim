@@ -24,7 +24,7 @@ return {
 				incomplete = {
 					raw = "[/]",
 					rendered = " ",
-					highlight = nil,
+					highlight = "RenderMarkdownInfo",
 					scope_highlight = nil,
 				},
 				warn = { raw = "[!]", rendered = " ", highlight = "RenderMarkdownWarn", scope_highlight = nil },
