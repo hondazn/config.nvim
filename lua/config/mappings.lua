@@ -74,6 +74,7 @@ map("n", "<leader>fc", function() Snacks.picker.commands() end, { desc = "Select
 map("n", "<leader>ff", function() Snacks.picker.files() end, { desc = "Select find files" })
 map("n", "<leader>fg", function() Snacks.picker.grep() end, { desc = "Select live grep" })
 map("n", "<leader>ft", function() Snacks.picker.colorschemes() end, { desc = "Select colorscheme theme" })
+map("n", "<leader>fr", function() Snacks.picker.recent() end, { desc = "List git projects" })
 map("n", "<leader>fp", function() Snacks.picker.git_projects() end, { desc = "List git projects" })
 map("n", "<leader>cR", function() Snacks.rename.rename_file() end, { desc = "Rename File" })
 map({ "n", "v" }, "<leader>gB", function() Snacks.gitbrowse() end, { desc = "Git Browse" })
